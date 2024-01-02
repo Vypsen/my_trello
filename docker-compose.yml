@@ -1,0 +1,40 @@
+version: '3'
+services:
+    app:
+        build:
+            context: .
+            dockerfile: ./docker/backend/Dockerfile
+        container_name: app_trello
+        restart: unless-stopped
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        working_dir: /var/www/trello
+        volumes:
+            - '.:/var/www/trello'
+        depends_on:
+            - database
+    nginx:
+        container_name: server_trello
+        image: 'nginx:alpine'
+        restart: unless-stopped
+        ports:
+            - '80:80'
+        volumes:
+            - '.:/var/www/trello'
+            - './docker/nginx/conf.d/:/etc/nginx/conf.d/'
+        depends_on:
+            - app
+    database:
+        container_name: db_trello
+        image: 'postgres:14.5'
+        environment:
+            - 'POSTGRES_DB=${DB_DATABASE}'
+            - 'POSTGRES_USER=${DB_USERNAME}'
+            - 'POSTGRES_PASSWORD=${DB_PASSWORD}'
+        ports:
+            - '${DB_PORT}:5432'
+        volumes:
+            - 'postgresql:/var/lib/postgresql/data/'
+volumes:
+    postgresql:
+        driver: local

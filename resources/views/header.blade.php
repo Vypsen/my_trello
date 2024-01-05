@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top flex-md-row" style="background-color: #1775ab; box-shadow: 0px 5px 8px -4px rgba(34, 60, 80, 1);">
+    <nav class="navbar navbar-expand-lg navbar-dark  flex-md-row" style="background-color: #1775ab; box-shadow: 0px 5px 8px -4px rgba(34, 60, 80, 1);">
         <div class="container-fluid mx-5">
             <a class="navbar-brand" href="/">Trello</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -36,8 +36,8 @@
         </div>
     </nav>
 
-    <div style="background-color: #ececff" class="min-vh-100">
-        <div style="padding: 10vh 0;" class="container-fluid">
+    <div>
+        <div class="">
             @yield('app')
         </div>
     </div>

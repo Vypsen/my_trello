@@ -34,4 +34,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/create-project', \App\Http\Controllers\ProjectsController::class . '@create')
         ->name('projects.post');
 
+    Route::get('/projects/{id}', \App\Http\Controllers\ProjectsController::class . '@view')
+        ->name('project');
+
+    Route::post('/create-status-task', \App\Http\Controllers\StatusTaskController::class . '@create')
+        ->name('status-task.post');
+
+    Route::post('/create-task', \App\Http\Controllers\TasksController::class . '@create')
+        ->name('create-task.post');
+
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Role;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
@@ -13,9 +14,13 @@ use Illuminate\Support\Facades\Mail;
 
 class ProjectsController extends Controller
 {
-    public function project()
+    public function view($id)
     {
-        return view('project');
+        $project = Project::find($id);
+//        $statusesTask = $project->typesTasks;
+        $tasks = $project->getTasksWithStatuses();
+
+        return view('project', ['project' => $project, 'tasks' => $tasks]);
     }
 
     public function create(Request $request)

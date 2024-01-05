@@ -36,4 +36,29 @@ class Project extends Model
         return $this->belongsTo(TypeProject::class);
     }
 
+    public function typesTasks()
+    {
+        return $this->hasMany(TypeTask::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+
+    public function getTasksWithStatuses()
+    {
+        $typesTasks = $this->typesTasks;
+
+        $arr = [];
+        foreach ($typesTasks as $type) {
+            if (count($type->tasks)) $arr[json_encode($type)] = $type->tasks;
+            else $arr[json_encode($type)] = [];
+        }
+
+        return $arr;
+
+    }
+
 }

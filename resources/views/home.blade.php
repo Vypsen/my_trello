@@ -1,15 +1,15 @@
 @extends('header')
 
 @section('app')
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             @foreach($projects as $project)
-                <div class="col-3 mb-3 ">
-                    <a href=""
+                <div class="col-3 mb-3 hover-zoom">
+                    <a href="{{route('project', ['id' => $project->id])}}"
                        style="overflow: hidden;display: block; height: 100px; border-radius: 5px; border: 1px solid #bbbbbb; background-color: #166492; box-shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);"
                        class=" text-decoration-none position-relative" id="add-project">
                         <div class="ms-3">
-                            <span class="d-block fs-5 " style="color: white; margin-top: 10px">
+                            <span class="d-block fs-5 " style="color: white; margin-top: 5px">
                                 {{$project->name}}
                             </span>
                             <span class="d-block " style="color: #eeeeee;">
@@ -23,13 +23,12 @@
                 </div>
             @endforeach
             <div class="col-3 mb-3">
-
                 <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"
                    style="display: block; height: 100px; border-radius: 5px; border: 1px solid #bbbbbb"
                    class=" text-decoration-none" id="add-project">
-            <span class="d-block fs-5 text-center" style="color: #777; margin-top: 30px">
-                <i class="fa-solid fa-plus"></i> создать проект
-            </span>
+                    <span class="d-block fs-5 text-center" style="color: #777; margin-top: 30px">
+                        <i class="fa-solid fa-plus"></i> создать проект
+                    </span>
                 </a>
             </div>
         </div>
@@ -69,7 +68,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" style="background-color: #166492" id="add-new-project-btn">Создать проект</button>
+                        <button type="submit" class="btn btn-success" style="background-color: #166492"
+                                id="add-new-project-btn">Создать проект
+                        </button>
                     </div>
                 </form>
             </div>

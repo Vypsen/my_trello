@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('tasks_statuses', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
 
-            $table->integer('task_id')->unsigned();
-            $table->foreign('task_id')
+            $table->integer('project_id')->unsigned();
+            $table->foreign('project_id')
                 ->references('id')
-                ->on('tasks')
+                ->on('projects')
                 ->cascadeOnDelete();
 
-            $table->string('status_name');
             $table->timestamps();
         });
     }

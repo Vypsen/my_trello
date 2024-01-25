@@ -43,4 +43,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/create-task', \App\Http\Controllers\TasksController::class . '@create')
         ->name('create-task.post');
 
+    Route::post('/add-user-project', \App\Http\Controllers\ProjectsController::class . '@addUser')
+        ->name('add-user-project.post');
+
+    Route::get('/task/{id}', \App\Http\Controllers\TasksController::class . '@view')
+        ->name('task');
+
+    Route::post('/task/update', \App\Http\Controllers\TasksController::class . '@update')
+        ->name('update-task.post');
+
 });

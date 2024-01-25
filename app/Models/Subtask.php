@@ -4,23 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
  * @property int $id
  * @property string $name
+ * @property int $task_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property bool $status
  */
-class Role extends Model
+class Subtask extends Model
 {
-    protected $table = 'roles';
+    protected $table = 'subtasks';
 
-    protected $fillable = [
-        'name',
-    ];
-
-    public function projects()
+    public function task()
     {
-        return $this->belongsToMany(Project::class, 'roles_users_projects', 'project_role', 'project_id');
+        return $this->belongsTo(Task::class);
     }
-
 }

@@ -1,22 +1,20 @@
 @extends('app')
 
 @section('content')
-    <nav class="navbar navbar-expand-lg navbar-dark  flex-md-row" style="background-color: #1775ab; box-shadow: 0px 5px 8px -4px rgba(34, 60, 80, 1);">
+    <nav class="navbar navbar-expand-lg navbar-dark p-1 flex-md-row" style="background-color: #1775ab; box-shadow: 0px 5px 8px -4px rgba(34, 60, 80, 1);">
         <div class="container-fluid mx-5">
             <a class="navbar-brand" href="/">Trello</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <div class="d-flex dropdown">
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            </div>
-                        </div>
-                    </li>
-
+            <div class="ms-5 collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @hasSection('project_name')
+                        <li class="text-white nav-item">
+                            <h1 class="m-0">/</h1>
+                        </li>
+                        <li class="ms-5 nav-item d-flex">
+                            <h4 class="m-0 align-items-center ms-2 d-flex fw-semibold text-white"> @yield('project_name') </h4>
+                        </li>
+                    @endif
                 </ul>
                 <div class="d-flex dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"

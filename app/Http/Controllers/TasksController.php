@@ -59,6 +59,8 @@ class TasksController extends Controller
             $task->save();
         }
 
+        if (!isset($data['subtasks']))return ;
+
         foreach ($data['subtasks'] as $subtask) {
             if ($subtask) {
                 $subtaskModel = new Subtask();

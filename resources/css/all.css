@@ -1,0 +1,35 @@
+html, body {
+    background-color: #ececff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: overlay !important;
+    overflow-x: hidden !important;
+}
+
+.my-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.my-container::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+#editableText {
+    border: 1px solid transparent;
+    padding: 8px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+#editableText:focus {
+    border-color: #ccc;
+    outline: none;
+}
+
+.view-task {
+    cursor: pointer;
+}
+

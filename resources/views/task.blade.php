@@ -81,20 +81,6 @@
 
 </div>
 
-<style>
-    #editableText {
-        border: 1px solid transparent;
-        padding: 8px;
-        margin-bottom: 10px;
-        transition: border-color 0.3s;
-    }
-
-    #editableText:focus {
-        border-color: #ccc;
-        outline: none;
-    }
-</style>
-
 <script>
 
     $('#add-subtask').click(function () {
